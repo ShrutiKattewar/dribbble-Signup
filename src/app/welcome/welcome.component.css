@@ -1,0 +1,45 @@
+.ng-invalid .ng-touched {
+  background-color: #fef2f2;
+}
+.ng-invalid .ng-touched::placeholder {
+  color: #ef4444;
+}
+
+.ng-dirty .ng-valid {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.notDisabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #fef2f2;
+  color: #ef4444;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

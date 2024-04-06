@@ -1,0 +1,92 @@
+<div
+  class="text-pink-500 font-bold text-3xl cedarville-cursive-regular absolute m-10"
+>
+  dribble
+</div>
+<div class="w-full h-[100vh] bg-white flex items-center justify-center">
+  <div class="text-lg w-[50%] p-9">
+    <div class="mb-8">
+      <h2 class="text-3xl font-semibold mt-4">
+        Welcome! Let's create your profile
+      </h2>
+      <p class="text-gray-600">
+        Let others get to know you better! You can do these later
+      </p>
+    </div>
+
+    <form [formGroup]="WelcomeForm" (ngSubmit)="next()">
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold mb-2">Add an avatar</h3>
+        <div class="flex">
+          <div class="w-1/4">
+            <div
+              *ngIf="profileImg === ''"
+              class="size-1 m-4 w-32 h-32 rounded-full border-4 border-dashed border-gray-300 object-cover"
+            >
+              <img
+                [src]="defaultImg"
+                alt=""
+                class="w-6 relative top-12 left-12"
+              />
+            </div>
+
+            <img
+              *ngIf="profileImg !== ''"
+              [src]="profileImg"
+              alt=""
+              class="size-1 w-32 h-32 rounded-full border-none outline-none object-cover"
+            />
+          </div>
+          <div class="w-3/4 mt-6 ms-8 form-group">
+            <i
+              *ngIf="message"
+              class="fa fa-warning text-sm text-red-500 pr-1 tooltip"
+              ><span class="tooltiptext">Only images are supported.</span></i
+            >
+            <label
+              for="image"
+              class="font-bold text-lg text-gray-600 border-solid border-2 rounded-md border-gray-300 py-1 px-2"
+            >
+              Choose Image
+            </label>
+            <input
+              class="form-control hidden"
+              id="image"
+              type="file"
+              formControlName="image"
+              (change)="getImage($event)"
+            />
+
+            <p
+              class="text-gray-400 font-semibold text-base ms-1 mt-4 cursor-pointer"
+            >
+              > Or choose one of our defaults
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-2">Add your location</h3>
+        <input
+          type="text"
+          id="location"
+          formControlName="location"
+          placeholder="Enter a location"
+          class="form-control w-11/12 px-4 py-2 border-b-2 border-gray-200 outline-none"
+        />
+      </div>
+      <button
+        type="submit"
+        [disabled]="WelcomeForm.pristine || WelcomeForm.invalid"
+        [ngClass]="
+          WelcomeForm.pristine || WelcomeForm.invalid
+            ? 'disabled'
+            : 'notDisabled'
+        "
+        class="w-1/3 bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Next
+      </button>
+    </form>
+  </div>
+</div>

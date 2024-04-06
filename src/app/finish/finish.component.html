@@ -1,0 +1,85 @@
+<div
+  class="text-pink-500 font-bold text-3xl cedarville-cursive-regular absolute m-10"
+>
+  dribbble
+  <span
+    (click)="back()"
+    class="bg-gray-200 text-black text-lg border-1 border-solid rounded-md ms-3"
+    ><i class="fa fa-angle-left px-3 py-6 text-base" aria-hidden="true"></i
+  ></span>
+</div>
+<div class="w-full h-[100vh] bg-white flex items-center justify-center">
+  <div class="p-6 w-[70%] flex flex-col items-center">
+    <h2 class="text-4xl font-bold mb-4">What brings you to Dribbble?</h2>
+    <p class="text-gray-600 mb-6 text-xl">
+      Select the options that best describe you. Don't worry, you can explore
+      other options later.
+    </p>
+
+    <!-- <label>
+      <input type="radio" value="Male" formControlName="gender />
+      <span>male</span>
+    </label>
+    <label>
+      <input type="radio" value="Female" formControlName="gender />
+      <span>female</span>
+    </label> -->
+
+    <form [formGroup]="radioForm" (change)="result($event)">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div
+          class="bg-white rounded-lg border-2 border-gray-300 p-4 flex flex-col text-center font-bold"
+        >
+          <div class="mr-4 h-4/5">
+            <img src="../../assets/fImg1.png" alt="" />
+          </div>
+          <p class="text-gray-700 h-1/5">
+            I'm a designer looking to share my work
+          </p>
+          <input
+            type="radio"
+            class="m-2"
+            value="Option1"
+            formControlName="Option"
+          />
+        </div>
+        <div
+          class="bg-white rounded-lg border-2 border-gray-300 p-4 flex flex-col text-center font-bold"
+        >
+          <div class="mr-4 h-4/5">
+            <img src="../../assets/fImg3.png" alt="" />
+          </div>
+          <p class="text-gray-700 h-1/5">I'm looking to hire a designer</p>
+          <input
+            type="radio"
+            class="m-2"
+            value="Option2"
+            formControlName="Option"
+          />
+        </div>
+        <div
+          class="bg-white rounded-lg border-2 border-gray-300 p-4 flex flex-col text-center font-bold"
+        >
+          <div class="mr-4 h-4/5">
+            <img src="../../assets/fImg2.png" alt="" />
+          </div>
+          <p class="text-gray-700 h-1/5">I'm looking for design inspiration</p>
+          <input
+            type="radio"
+            class="m-2"
+            value="Option3"
+            formControlName="Option"
+          />
+        </div>
+      </div>
+    </form>
+    <button
+      (click)="goHome()"
+      [disabled]="!showButton"
+      [ngClass]="showButton ? 'notDisabled' : 'disabled'"
+      class="bg-pink-500 w-1/4 text-white rounded-lg px-4 py-2 mt-8 hover:bg-pink-600 transition-colors duration-300"
+    >
+      Finish
+    </button>
+  </div>
+</div>
